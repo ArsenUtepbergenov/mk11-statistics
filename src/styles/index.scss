@@ -1,10 +1,11 @@
+// variables
 :root {
   --color-white: #ffffff;
   --color-green: #8bc34a;
   --color-scarlet: #fd928a;
 }
 $laptop-width: 1024px;
-
+// base styles
 #app {
   background: url(../assets/bg.jpg) no-repeat;
   background-size: cover;
@@ -18,10 +19,14 @@ $laptop-width: 1024px;
     grid-template-columns: 1fr;
   }
 }
-
 #app * {
   box-sizing: border-box;
 }
+input, button {
+  outline: 0;
+  border: 0;
+}
+// pages
 .about,
 .home {
   display: flex;
@@ -34,7 +39,12 @@ $laptop-width: 1024px;
     align-items: stretch;
   }
 }
-
+// rules
+@import './rules';
+// main elements
+@import './buttons';
 @import './menu';
 @import './table';
-@import './inputs'
+@import './inputs';
+@import './add-player';
+@import './tooltip';

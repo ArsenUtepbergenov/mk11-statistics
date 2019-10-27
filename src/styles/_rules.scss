@@ -1,0 +1,66 @@
+/* LAYOUT */
+// FLEX BOX RULES
+.flex {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.flex-col {
+  @extend .flex;
+  flex-direction: column;
+}
+.flex-cc {
+  @extend .flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-sc {
+  @extend .flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-ec {
+  @extend .flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex-bc {
+  @extend .flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-ac {
+  @extend .flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.flex-se {
+  @extend .flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.flex-ss {
+  @extend .flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.flex-cs {
+  @extend .flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.flex-cb {
+  @extend .flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.flex-es {
+  @extend .flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+// POS RULES
+.pos-wide {
+  flex-grow: 1;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}

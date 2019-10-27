@@ -5,6 +5,12 @@ import store from './store'
 // styles
 import 'normalize.css'
 import './styles/index.scss'
+// global directives
+Vue.directive('focus', {
+  inserted (el) {
+    el.focus()
+  }
+})
 
 Vue.config.productionTip = false
 

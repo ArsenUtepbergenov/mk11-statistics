@@ -1,0 +1,22 @@
+.button {
+  border: 0;
+  background: none;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--color-white);
+}
+
+.button-add {
+  @extend .button;
+  color: var(--color-white);
+  padding: 20px;
+  font-size: 3em;
+  width: initial;
+}
+
+.button-delete {
+  @extend .button;
+  font-size: 0.8em;
+  padding: 2px;
+}

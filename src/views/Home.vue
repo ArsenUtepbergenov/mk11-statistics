@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <statistics-table :players="players" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import statisticsTable from '@/components/statistics-table'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    statisticsTable
+  },
+  created () {
+    this.$store.dispatch('fetchPlayers')
+  },
+  computed: {
+    players () {
+      return this.$store.state.players
+    }
   }
 }
 </script>

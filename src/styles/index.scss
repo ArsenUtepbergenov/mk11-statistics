@@ -1,0 +1,40 @@
+:root {
+  --color-white: #ffffff;
+  --color-green: #8bc34a;
+  --color-scarlet: #fd928a;
+}
+$laptop-width: 1024px;
+
+#app {
+  background: url(../assets/bg.jpg) no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  font-family: 'Raleway', sans-serif;
+  @media screen and (max-width: $laptop-width) {
+    grid-template-columns: 1fr;
+  }
+}
+
+#app * {
+  box-sizing: border-box;
+}
+.about,
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  color: var(--color-white);
+  @media screen and (max-width: $laptop-width) {
+    align-items: stretch;
+  }
+}
+
+@import './menu';
+@import './table';
+@import './inputs'

@@ -3,6 +3,9 @@
   --color-white: #ffffff;
   --color-green: #8bc34a;
   --color-scarlet: #fd928a;
+  --color-red: #ff4d40;
+  --color-table: rgba(74, 74, 74, 0.8);
+  --color-table-even-row: rgba(39, 44, 66, 0.9);
 }
 $laptop-width: 1024px;
 // base styles
@@ -14,7 +17,7 @@ $laptop-width: 1024px;
   overflow: hidden;
   display: grid;
   grid-template-columns: 300px 1fr;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'McLaren', cursive;
   @media screen and (max-width: $laptop-width) {
     grid-template-columns: 1fr;
   }
@@ -27,6 +30,7 @@ input, button {
   border: 0;
 }
 // pages
+.tournament,
 .about,
 .home {
   display: flex;
@@ -39,6 +43,24 @@ input, button {
     align-items: stretch;
   }
 }
+// components
+.add-player {
+  height: 40px;
+  &__text {
+    font-size: 2em;
+  }
+}
+.loading-indicator {
+  font-size: 5em;
+  align-self: stretch;
+  &__spinner {
+    animation: rotating 2s linear infinite;
+  }
+}
+@keyframes rotating {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
 // rules
 @import './rules';
 // main elements
@@ -46,5 +68,4 @@ input, button {
 @import './menu';
 @import './table';
 @import './inputs';
-@import './add-player';
 @import './tooltip';

@@ -1,10 +1,10 @@
 <template>
-  <div class="statistics-table">
+  <div class="flex-col statistics-table">
     <input
       class="input"
       type="text"
       ref="searchInput"
-      @keyup="searchByName"
+      @keyup="searchByName()"
       placeholder="Search by name..."
       title="Search by name">
     <table ref="statisticsTable" class="table">
@@ -12,10 +12,14 @@
       <th class="table__th">Status</th>
       <th class="table__th">Score</th>
       <tr>
-        <td class="table__td" colspan="2"><add-player /></td>
+        <td class="table__td">
+          <add-player />
+        </td>
       </tr>
       <tr v-for="player in players" :key="player.id" class="table__tr">
-        <td class="table__td table--name">{{player.name}}</td>
+        <td class="table__td">
+          <update-player :_id="player.id" :_name="player.name" />
+        </td>
         <td class="table__td">{{player.status}}</td>
         <td class="table__td">{{player.score}}</td>
         <td class="table__td">
@@ -33,6 +37,7 @@
 
 <script>
 import addPlayer from './add-player'
+import updatePlayer from './update-player'
 
 export default {
   name: 'statistics-table',
@@ -67,7 +72,8 @@ export default {
     }
   },
   components: {
-    addPlayer
+    addPlayer,
+    updatePlayer
   }
 }
 </script>

@@ -5,18 +5,22 @@
   font-weight: bold;
   cursor: pointer;
   color: var(--color-white);
-}
-
-.button-add {
-  @extend .button;
-  color: var(--color-white);
-  padding: 20px;
-  font-size: 3em;
-  width: initial;
-}
-
-.button-delete {
-  @extend .button;
   font-size: 0.8em;
   padding: 2px;
+}
+.button-add {
+  @extend .button;
+  height: 40px;
+}
+.button-delete {
+  @extend .button;
+}
+.button-to-tournament,
+.button-update {
+  @extend .button;
+  width: initial;
+  margin: 0 8px;
+  &--selected {
+    color: var(--color-red);
+  }
 }

@@ -1,22 +1,25 @@
 <template>
   <div class="add-player">
     <template v-if="!isInputVisible">
-      <button
-        class="flex-sc button-add tooltip"
-        @click="toggleInputVisible">
+      <div
+        class="flex-cc button-add tooltip"
+        @click="toggleInputVisible()">
         <span class="add-player__text">+</span>
         <span class="tooltip__text">Add new player</span>
-      </button>
+      </div>
     </template>
     <template v-else>
-      <input
-        type="text"
-        class="add-player__input"
-        placeholder="New player..."
-        @keyup.enter.prevent="addPlayer"
-        v-focus
-        v-model="name"/>
-        <span class="underline"></span>
+      <div
+        class="underline-input">
+        <input
+          type="text"
+          class="underline-input__input"
+          placeholder="New player..."
+          @keyup.enter.prevent="addPlayer()"
+          v-focus
+          v-model="name"/>
+        <span class="underline-input__underline"></span>
+      </div>
     </template>
   </div>
 </template>
@@ -37,7 +40,7 @@ export default {
         this.$store.dispatch('addPlayer',
           {
             name: this.name,
-            status: 'Bad player',
+            status: 'Beginner',
             score: 0
           })
         this.name = ''

@@ -9,5 +9,9 @@ export default {
   },
   deletePlayer (id) {
     return db.collection('players').doc(id).delete()
+  },
+  updatePlayerName (data) {
+    const { id, name } = data
+    return db.collection('players').doc(id).update({ name: name })
   }
 }

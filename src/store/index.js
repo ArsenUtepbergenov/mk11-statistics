@@ -6,18 +6,34 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    players: []
+    players: [],
+    playersForTournament: [],
+    playersLoading: true
   },
   mutations: {
     setPlayers (state, data) {
       state.players = data
     },
+    addPlayerForTournament (state, data) {
+      state.playersForTournament.push(data)
+    },
+    setPlayersLoadingStatus (state, status) {
+      state.playersLoading = status
+    },
     addPlayer (state, data) {
       state.players.push(data)
+    },
+    deletePlayerForTournament (state, index) {
+      state.playersForTournament.splice(index, 1)
     },
     deletePlayer (state, id) {
       const index = state.players.findIndex(player => player.id === id)
       state.players.splice(index, 1)
+    },
+    setNewNamePlayer (state, data) {
+      const { id, name } = data
+      const index = state.players.findIndex(player => player.id === id)
+      state.players[index].name = name
     }
   },
   actions: {
@@ -32,16 +48,17 @@ export default new Vuex.Store({
             data.push(dataDoc)
           })
           commit('setPlayers', data)
+          commit('setPlayersLoadingStatus', false)
         })
         .catch(error => {
           console.error('Error fetch rooms collection: ', error)
         })
     },
-    addPlayer (context, data) {
+    addPlayer ({ commit }, data) {
       api.addPlayer(data)
         .then(docRef => {
           console.log('Document written with ID: ', docRef.id)
-          context.commit('addPlayer', {
+          commit('addPlayer', {
             id: docRef.id,
             ...data
           })
@@ -50,14 +67,55 @@ export default new Vuex.Store({
           console.error('Error add room document: ', error)
         })
     },
-    deletePlayer (context, id) {
+    deletePlayer ({ commit }, id) {
       const tempId = id
       api.deletePlayer(id)
         .then(() => {
           console.log('The player successfully deleted!', tempId)
-          context.commit('deletePlayer', tempId)
+          commit('deletePlayer', tempId)
         })
         .catch(error => console.error('Error removing document: ', error))
+    },
+    updatePlayerName ({ commit }, data) {
+      api.updatePlayerName(data)
+        .then(() => {
+          commit('setNewNamePlayer', data)
+        })
+        .catch(error => {
+          console.error('Error updating document: ', error)
+        })
+    },
+    toggleToTournament ({ commit, getters, state }, data) {
+      const { id } = data
+      const index = getters['getIndexById']({ prop: 'playersForTournament', id })
+      if (index > -1 && state.playersForTournament.length) {
+        commit('deletePlayerForTournament', index)
+      } else if (data) {
+        commit('addPlayerForTournament', { id })
+      }
+    }
+  },
+  getters: {
+    getIndexById: state => data => {
+      const { prop, id } = data
+      if (prop && id) {
+        const index = state[prop].findIndex(item => item.id === id)
+        return index
+      } else {
+        return -1
+      }
+    },
+    getPlayers (state) {
+      return state.players
+    },
+    getPlayersForTournament (state) {
+      return state.players.filter(item => state.playersForTournament.find(temp => temp.id === item.id))
+    },
+    getPlayersLength (state) {
+      return state.players.length
+    },
+    isPlayersLoading (state) {
+      return state.playersLoading
     }
   }
 })

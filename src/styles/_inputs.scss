@@ -3,12 +3,36 @@
   margin-bottom: 12px;
 }
 
-.underline {
-  background: #c6cfff;
-  display: inline-block;
-  height: 4px;
-  left: 0;
-  position: absolute;
-  top: 48px;
-  width: 100%;
+.underline-input {
+  position: relative;
+  &__text {
+    line-height: 20px;
+  }
+  &__input {
+    width: 100%;
+    font-size: 18px;
+    padding: 14px 12px;
+    background: transparent;
+    color: white;
+  }
+  &__input::placeholder {
+    color: #cecece;
+  }
+  &__underline {
+    background: #c6cfff;
+    display: inline-block;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+  }
+  &--name {
+    .underline-input__input {
+      padding: 7px 0;
+    }
+    .underline-input__underline {
+      top: 32px;
+    }
+  }
 }

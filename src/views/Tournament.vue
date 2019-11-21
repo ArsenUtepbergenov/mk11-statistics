@@ -1,20 +1,21 @@
 <template>
   <div class="tournament">
-    <div>
-      {{playersForTournament}}
-    </div>
+    <tournament-tree :names="playersNames" />
   </div>
 </template>
 
 <script>
+import tournamentTree from '@/components/tournament-tree'
+
 export default {
-  name: 'home',
-  components: {
-  },
+  name: 'tournament',
   computed: {
-    playersForTournament () {
-      return this.$store.getters.getPlayersForTournament
+    playersNames () {
+      return this.$store.getters.getPlayersNames
     }
+  },
+  components: {
+    tournamentTree
   }
 }
 </script>

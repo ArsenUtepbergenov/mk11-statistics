@@ -111,6 +111,14 @@ export default new Vuex.Store({
     getPlayersForTournament (state) {
       return state.players.filter(item => state.playersForTournament.find(temp => temp.id === item.id))
     },
+    getPlayersNames (state, getters) {
+      const players = getters.getPlayersForTournament
+      let names = []
+      for (const player of players) {
+        names.push(player.name)
+      }
+      return names
+    },
     getPlayersLength (state) {
       return state.players.length
     },

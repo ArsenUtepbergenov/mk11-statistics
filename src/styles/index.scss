@@ -29,6 +29,10 @@ input, button {
   outline: 0;
   border: 0;
 }
+canvas {
+  width: 100%;
+  height: 100%;
+}
 // pages
 .tournament,
 .about,
@@ -44,6 +48,22 @@ input, button {
   }
 }
 // components
+.tournament-tree {
+  width: 100%;
+  height: 100%;
+  &__nodes {
+    position: relative;
+    height: 100%;
+  }
+  &__node {
+    padding: 10px;
+    margin: 10px;
+    background: rgba(43, 43, 43, 0.7);
+    border: 3px dashed #cccccc;
+    border-radius: 7px;
+    position: absolute;
+  }
+}
 .add-player {
   height: 40px;
   &__text {

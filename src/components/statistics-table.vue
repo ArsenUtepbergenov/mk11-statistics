@@ -1,12 +1,15 @@
 <template>
   <div class="flex-col statistics-table">
-    <input
-      class="input"
-      type="text"
-      ref="searchInput"
-      @keyup="searchByName()"
-      placeholder="Search by name..."
-      title="Search by name">
+    <div class="underline-input">
+      <input
+        type="text"
+        class="underline-input__input"
+        ref="searchInput"
+        @keyup="searchByName()"
+        placeholder="Search by name..."
+        title="Search by name">
+      <span class="underline-input__underline"></span>
+    </div>
     <table ref="statisticsTable" class="table">
       <th class="table__th">Name</th>
       <th class="table__th">Status</th>

@@ -19,7 +19,7 @@
 .button-update {
   @extend .button;
   width: initial;
-  margin: 0 8px;
+  margin: 0 22px;
   &--selected {
     color: var(--color-red);
   }

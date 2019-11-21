@@ -1,19 +1,20 @@
 .statistics-table {
-  justify-content: stretch;
-  align-items: stretch;
+  .underline-input {
+    margin-bottom: 16px;
+  }
 }
 .table {
   color: var(--color-white);
   background: var(--color-table);
   border-collapse: collapse;
-  font-size: 1.8em;
+  font-size: 1.6em;
   &__tr:nth-child(even) {
     background: var(--color-table-even-row);
   }
   &__th,
   &__td {
     text-align: center;
-    padding: 18px 42px;
+    padding: 12px 15px;
   }
   &__th {
     color: var(--color-green);

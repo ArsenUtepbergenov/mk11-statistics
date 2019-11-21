@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-sc update-player">
+  <div class="flex-bc update-player">
     <template v-if="!isInputVisible">
       <button
         class="flex button-to-tournament tooltip"

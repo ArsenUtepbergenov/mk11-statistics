@@ -4,7 +4,7 @@
   --color-green: #8bc34a;
   --color-scarlet: #fd928a;
   --color-red: #ff4d40;
-  --color-table: rgba(74, 74, 74, 0.8);
+  --color-table: rgba(0, 0, 0, 0.8);
   --color-table-even-row: rgba(39, 44, 66, 0.9);
 }
 $laptop-width: 1024px;
@@ -12,18 +12,32 @@ $laptop-width: 1024px;
 #app {
   background: url(../assets/bg.jpg) no-repeat;
   background-size: cover;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  font-family: 'McLaren', cursive;
-  @media screen and (max-width: $laptop-width) {
+  .app__content {
+    overflow: hidden;
+    display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr;
+    font-family: 'Alata', sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100vh;
+  }
+  @media screen and (max-width: $laptop-width) {
+    .app__content {
+      grid-template-rows: auto 1fr;
+    }
   }
 }
 #app * {
   box-sizing: border-box;
+}
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  opacity: 0.5;
 }
 input, button {
   outline: 0;
@@ -35,13 +49,13 @@ canvas {
 }
 // pages
 .tournament,
-.about,
+.statistics,
 .home {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1;
   color: var(--color-white);
   @media screen and (max-width: $laptop-width) {
     align-items: stretch;

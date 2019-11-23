@@ -18,6 +18,8 @@ export default {
   },
   methods: {
     drawTree () {
+      let currentFirstNode = 50
+      let currentTopIndent = currentFirstNode
       const treeNodes = this.$refs['tree-nodes']
       const levels = Math.log2(this.names.length)
       if (levels % 1 === 0 && levels > 0) {
@@ -28,26 +30,30 @@ export default {
           return
         }
         if (levels === 0) {
-          for (const name of names) {
-            drawNode(name, levels)
+          for (let [index, name] of names.entries()) {
+            createNode(name, levels, index)
           }
-          return
         } else {
           let i = 0
           while (i < steps) {
-            drawNode('', levels, i)
+            createNode('', levels, i)
             i++
           }
         }
         levels = levels - 1
+        currentFirstNode = currentFirstNode / 2
+        currentTopIndent = currentFirstNode
         steps *= 2
         return drawNodes(names, levels, steps)
       }
-      function drawNode (name, levels, i) {
+      function createNode (name, levels, i) {
         const span = document.createElement('span')
         if (name) span.innerText = name
         span.className = 'tournament-tree__node'
-        span.style.cssText = `left: ${levels * 20}%; top: ${levels * i * 10}%;`
+        currentTopIndent += currentFirstNode * 2
+        span.setAttribute('key', levels / 2)
+        if (i === 0) currentTopIndent = currentFirstNode
+        span.style.cssText = `left: ${levels * 20}%; top: ${currentTopIndent}%;`
         treeNodes.appendChild(span)
       }
     }

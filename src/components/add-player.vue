@@ -1,12 +1,12 @@
 <template>
   <div class="flex-cc flex-col add-player">
     <template v-if="!isInputVisible">
-      <div
+      <button
         class="flex-cc button-add tooltip"
         @click="toggleInputVisible()">
         <i class="fas fa-user-plus"></i>
         <span class="tooltip__text">Add new player</span>
-      </div>
+      </button>
     </template>
     <template v-else>
       <div

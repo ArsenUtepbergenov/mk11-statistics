@@ -13,15 +13,14 @@ $laptop-width: 1024px;
 #app {
   background: url(../assets/bg.jpg) no-repeat;
   background-size: cover;
+  min-height: 100vh;
   .app__content {
-    overflow: hidden;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 50px 1fr;
     font-family: 'Alata', sans-serif;
     padding: 20px;
     box-sizing: border-box;
-    height: 100vh;
   }
   @media screen and (max-width: $laptop-width) {
     .app__content {
@@ -34,10 +33,6 @@ $laptop-width: 1024px;
 }
 .bg-video {
   position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%; 
-  min-height: 100%;
   opacity: 0.5;
 }
 input, button {

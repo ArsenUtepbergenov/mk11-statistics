@@ -1,5 +1,4 @@
-/* LAYOUT */
-// FLEX BOX RULES
+// flex box rules
 .flex {
   display: flex;
   flex-wrap: nowrap;
@@ -58,9 +57,17 @@
   justify-content: flex-end;
   align-items: flex-start;
 }
-// POS RULES
+// another rules
 .pos-wide {
   flex-grow: 1;
   flex-wrap: nowrap;
   overflow: hidden;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

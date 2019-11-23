@@ -1,0 +1,13 @@
+.tournament,
+.statistics,
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1;
+  color: var(--color-white);
+  @media screen and (max-width: $laptop-width) {
+    align-items: stretch;
+  }
+}

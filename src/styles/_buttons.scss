@@ -1,25 +1,23 @@
 .button {
   border: 0;
   background: none;
-  width: 100%;
   font-weight: bold;
   cursor: pointer;
   color: var(--color-white);
   font-size: 0.8em;
   padding: 2px;
 }
-.button-add {
+.button-add,
+.button-update,
+.button-delete,
+.button-to-tournament {
   @extend .button;
-  height: 40px;
 }
+.button-update,
 .button-delete {
-  @extend .button;
+  margin: 10px;
 }
-.button-to-tournament,
-.button-update {
-  @extend .button;
-  width: initial;
-  margin: 0 22px;
+.button-to-tournament {
   &--selected {
     color: var(--color-red);
   }

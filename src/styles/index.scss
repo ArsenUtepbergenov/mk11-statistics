@@ -4,6 +4,7 @@
   --color-green: #8bc34a;
   --color-scarlet: #fd928a;
   --color-red: #ff4d40;
+  --color-yellow: #dccd49;
   --color-table: rgba(0, 0, 0, 0.8);
   --color-table-even-row: rgba(39, 44, 66, 0.9);
 }
@@ -47,54 +48,6 @@ canvas {
   width: 100%;
   height: 100%;
 }
-// pages
-.tournament,
-.statistics,
-.home {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  z-index: 1;
-  color: var(--color-white);
-  @media screen and (max-width: $laptop-width) {
-    align-items: stretch;
-  }
-}
-// components
-.tournament-tree {
-  width: 100%;
-  height: 100%;
-  &__nodes {
-    position: relative;
-    height: 100%;
-  }
-  &__node {
-    padding: 10px;
-    margin: 10px;
-    background: rgba(43, 43, 43, 0.7);
-    border: 3px dashed #cccccc;
-    border-radius: 7px;
-    position: absolute;
-  }
-}
-.add-player {
-  height: 40px;
-  &__text {
-    font-size: 2em;
-  }
-}
-.loading-indicator {
-  font-size: 5em;
-  align-self: stretch;
-  &__spinner {
-    animation: rotating 2s linear infinite;
-  }
-}
-@keyframes rotating {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(360deg);}
-}
 // rules
 @import './rules';
 // main elements
@@ -102,4 +55,9 @@ canvas {
 @import './menu';
 @import './table';
 @import './inputs';
+@import './card';
 @import './tooltip';
+// components
+@import './components';
+// pages
+@import './pages';

@@ -20,7 +20,7 @@ export default {
     drawTree () {
       const treeNodes = this.$refs['tree-nodes']
       const levels = Math.log2(this.names.length)
-      if (levels % 1 === 0) {
+      if (levels % 1 === 0 && levels > 0) {
         drawNodes(this.names, levels, 1)
       }
       function drawNodes (names, levels, steps) {

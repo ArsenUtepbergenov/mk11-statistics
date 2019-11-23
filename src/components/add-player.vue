@@ -1,16 +1,16 @@
 <template>
-  <div class="add-player">
+  <div class="flex-cc flex-col add-player">
     <template v-if="!isInputVisible">
       <div
         class="flex-cc button-add tooltip"
         @click="toggleInputVisible()">
-        <span class="add-player__text">+</span>
+        <i class="fas fa-user-plus"></i>
         <span class="tooltip__text">Add new player</span>
       </div>
     </template>
     <template v-else>
       <div
-        class="underline-input">
+        class="flex underline-input">
         <input
           type="text"
           class="underline-input__input"

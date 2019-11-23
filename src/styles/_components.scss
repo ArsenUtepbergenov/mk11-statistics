@@ -1,0 +1,42 @@
+// tournament tree
+.tournament-tree {
+  width: 100%;
+  height: 100%;
+  &__nodes {
+    position: relative;
+    height: 100%;
+  }
+  &__node {
+    padding: 10px;
+    margin: 10px;
+    background: rgba(43, 43, 43, 0.7);
+    border: 3px dashed #cccccc;
+    border-radius: 7px;
+    position: absolute;
+  }
+}
+// add player
+.add-player {
+  font-size: 4em;
+  background: none;
+}
+// update player
+.update-player {
+  align-self: stretch;
+  font-size: 25px;
+  &__name {
+    max-width: 220px;
+  }
+}
+// loading indicator
+.loading-indicator {
+  font-size: 5em;
+  align-self: stretch;
+  &__spinner {
+    animation: rotating 2s linear infinite;
+  }
+}
+@keyframes rotating {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}

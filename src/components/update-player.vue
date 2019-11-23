@@ -1,33 +1,36 @@
 <template>
-  <div class="flex-bc update-player">
-    <template v-if="!isInputVisible">
+  <div class="flex-cc flex-col update-player">
+    <div class="update-player__name">
+      <template v-if="!isInputVisible">
+        <div class="text">{{name}}</div>
+      </template>
+      <template v-else>
+        <div class="underline-input">
+          <input
+            type="text"
+            class="underline-input__input"
+            placeholder="New name..."
+            @keyup.enter.prevent="updatePlayerName()"
+            v-focus
+            v-model="name"/>
+          <span class="underline-input__underline"></span>
+        </div>
+      </template>
+    </div>
+    <div class="flex-ac">
       <button
-        class="flex button-to-tournament tooltip"
-        :class="isSelectedClass > -1 ? 'button-to-tournament--selected' : ''"
-        @click="toggleToTournament()">
-          <i class="fas fa-trophy"></i>
-          <span class="tooltip__text">To tournament</span>
-      </button>
-      <span class="update-player__name">{{name}}</span>
-      <button
+        v-show="!isInputVisible"
         class="flex button-update tooltip"
         @click="toggleInputVisible()">
           <i class="far fa-edit"></i>
-          <span class="tooltip__text">New name</span>
+          <span class="tooltip__text">Edit</span>
       </button>
-    </template>
-    <template v-else>
-      <div class="underline-input underline-input--name">
-        <input
-          type="text"
-          class="underline-input__input"
-          placeholder="New name..."
-          @keyup.enter.prevent="updatePlayerName()"
-          v-focus
-          v-model="name"/>
-        <span class="underline-input__underline"></span>
-      </div>
-    </template>
+      <button
+        class="button-delete"
+        @click="deletePlayer()">
+          <i class="far fa-trash-alt"></i>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -50,11 +53,6 @@ export default {
       default: ''
     }
   },
-  computed: {
-    isSelectedClass () {
-      return this.$store.getters['getIndexById']({ prop: 'playersForTournament', id: this._id })
-    }
-  },
   methods: {
     toggleInputVisible () {
       this.isInputVisible = !this.isInputVisible
@@ -65,8 +63,10 @@ export default {
         this.$store.dispatch('updatePlayerName', { id: this._id, name: this.name })
       }
     },
-    toggleToTournament () {
-      this.$store.dispatch('toggleToTournament', { id: this._id, name: this.name })
+    deletePlayer () {
+      if (this._id) {
+        this.$store.dispatch('deletePlayer', this._id)
+      }
     }
   }
 }

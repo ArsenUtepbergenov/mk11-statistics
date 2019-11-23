@@ -14,34 +14,16 @@
       <th class="table__th">Name</th>
       <th class="table__th">Status</th>
       <th class="table__th">Score</th>
-      <tr>
-        <td class="table__td">
-          <add-player />
-        </td>
-      </tr>
       <tr v-for="player in players" :key="player.id" class="table__tr">
-        <td class="table__td">
-          <update-player :_id="player.id" :_name="player.name" />
-        </td>
+        <td class="table__td">{{player.name}}</td>
         <td class="table__td">{{player.status}}</td>
         <td class="table__td">{{player.score}}</td>
-        <td class="table__td">
-          <button
-            class="flex button-delete tooltip"
-            @click="deletePlayer(player.id)">
-              <i class="far fa-trash-alt"></i>
-              <span class="tooltip__text">Delete the player</span>
-          </button>
-        </td>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
-import addPlayer from './add-player'
-import updatePlayer from './update-player'
-
 export default {
   name: 'statistics-table',
   props: {
@@ -67,16 +49,7 @@ export default {
           }
         }
       }
-    },
-    deletePlayer (id) {
-      if (id) {
-        this.$store.dispatch('deletePlayer', id)
-      }
     }
-  },
-  components: {
-    addPlayer,
-    updatePlayer
   }
 }
 </script>

@@ -11,28 +11,20 @@
   &__input {
     width: 100%;
     font-size: 18px;
-    padding: 14px 12px;
+    padding: 9px 0;
     background: transparent;
-    color: white;
+    color: var(--color-yellow);
   }
   &__input::placeholder {
-    color: white;
+    color: var(--color-white);
   }
   &__underline {
     background: #788cf5;
     display: inline-block;
-    height: 2px;
+    height: 3px;
     left: 0;
     position: absolute;
-    top: 40px;
+    top: 33px;
     width: 100%;
-  }
-  &--name {
-    .underline-input__input {
-      padding: 7px 0;
-    }
-    .underline-input__underline {
-      top: 32px;
-    }
   }
 }

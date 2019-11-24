@@ -7,11 +7,16 @@
   }
   &__node {
     padding: 10px;
-    margin: 10px;
-    background: rgba(43, 43, 43, 0.7);
-    border: 3px dashed #cccccc;
-    border-radius: 7px;
+    margin: 3px;
+    border-radius: 9px;
+    background: #46964a;
+    border-left: 8px solid #f1f1f1;
     position: absolute;
+    cursor: pointer;
+  }
+  &--selected {
+    pointer-events: none;
+    background: var(--color-red);
   }
 }
 // add player

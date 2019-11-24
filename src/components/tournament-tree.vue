@@ -18,6 +18,7 @@ export default {
   },
   methods: {
     drawTree () {
+      const context = this
       let currentFirstNode = 50
       let currentTopIndent = currentFirstNode
       const treeNodes = this.$refs['tree-nodes']
@@ -51,10 +52,36 @@ export default {
         if (name) span.innerText = name
         span.className = 'tournament-tree__node'
         currentTopIndent += currentFirstNode * 2
-        span.setAttribute('key', levels / 2)
+        span.setAttribute('key', Math.ceil((i + 1) / 2))
+        span.setAttribute('level', levels)
         if (i === 0) currentTopIndent = currentFirstNode
         span.style.cssText = `left: ${levels * 20}%; top: ${currentTopIndent}%;`
+        span.addEventListener('click', context.changeLevel)
         treeNodes.appendChild(span)
+      }
+    },
+    changeLevel (event) {
+      const target = event.currentTarget
+      if (target) {
+        const text = target.innerText
+        if (!text) return
+        const level = target.getAttribute('level')
+        const key = target.getAttribute('key')
+        const treeNodes = this.$refs['tree-nodes']
+        const allNodes = treeNodes.querySelectorAll('.tournament-tree__node')
+        const subNodes = []
+        allNodes.forEach(node => {
+          const nextLevel = parseInt(level) + 1
+          if (parseInt(node.getAttribute('level')) === nextLevel) {
+            subNodes.push(node)
+          }
+        })
+        if (subNodes && subNodes.length > 0) {
+          if (subNodes[key - 1].innerText) return
+          subNodes[key - 1].innerText = text
+          target.className += ' tournament-tree--selected'
+          target.removeEventListener('click', this.changeLevel)
+        }
       }
     }
   }

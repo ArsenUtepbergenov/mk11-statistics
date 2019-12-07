@@ -32,6 +32,11 @@
   justify-content: space-around;
   align-items: center;
 }
+.flex-ec {
+  @extend .flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .flex-se {
   @extend .flex;
   justify-content: flex-start;

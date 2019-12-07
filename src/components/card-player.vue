@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-ac flex-col card-player">
+  <div class="flex-ec flex-col card-player">
     <button
       class="flex button-to-tournament tooltip"
       :class="isSelectedClass > -1 ? 'button-to-tournament--selected' : ''"

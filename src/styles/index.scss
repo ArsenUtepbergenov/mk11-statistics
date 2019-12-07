@@ -17,9 +17,9 @@ $laptop-width: 1024px;
   .app__content {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 50px 1fr;
+    grid-template-rows: 60px 1fr;
     font-family: 'Alata', sans-serif;
-    padding: 20px;
+    padding: 14px;
     box-sizing: border-box;
   }
   @media screen and (max-width: $laptop-width) {

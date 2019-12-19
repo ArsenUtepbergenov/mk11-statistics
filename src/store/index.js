@@ -93,6 +93,12 @@ export default new Vuex.Store({
       } else if (data) {
         commit('addPlayerForTournament', { id })
       }
+    },
+    addAllToTournament ({ state, commit }, players) {
+      for (const player of players) {
+        const { id } = player
+        commit('addPlayerForTournament', { id })
+      }
     }
   },
   getters: {

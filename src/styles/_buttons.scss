@@ -22,3 +22,19 @@
     color: var(--color-red);
   }
 }
+.button-all-to-tournament {
+  @extend .button;
+  border-radius: 18PX;
+  border: 2px solid;
+  padding: 10px;
+  color: #FF9800;
+  margin: 5px;
+  transition: all 0.3s ease;
+  &__icon {
+    margin: 0 4px;
+  }
+  &:hover {
+    background: #FF9800;
+    color: var(--color-white);
+  }
+}

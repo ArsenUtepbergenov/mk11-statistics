@@ -1,5 +1,11 @@
 <template>
   <div class="home">
+    <div class="flex-cc">
+      <button key="Math.randome()" class="button-all-to-tournament" @click="addAllToTournament">
+        <span>All to tournament</span>
+        <i class="fas fa-share-square button-all-to-tournament__icon"></i>
+      </button>
+    </div>
     <template v-if="!isPlayersLoading">
       <div class="flex-cc wrap">
         <card-player
@@ -36,6 +42,14 @@ export default {
     },
     isPlayersLoading () {
       return this.$store.getters.isPlayersLoading
+    }
+  },
+  methods: {
+    toggleToTournament () {
+      this.$store.dispatch('toggleToTournament', { id: this.id, name: this.name })
+    },
+    addAllToTournament () {
+      this.$store.dispatch('addAllToTournament', this.players)
     }
   }
 }

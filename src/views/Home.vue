@@ -2,8 +2,8 @@
   <div class="home">
     <div class="flex-cc">
       <button key="Math.randome()" class="button-all-to-tournament" @click="addAllToTournament">
+        <i class="fas fa-trophy button-all-to-tournament__icon"></i>
         <span>All to tournament</span>
-        <i class="fas fa-share-square button-all-to-tournament__icon"></i>
       </button>
     </div>
     <template v-if="!isPlayersLoading">
@@ -45,9 +45,6 @@ export default {
     }
   },
   methods: {
-    toggleToTournament () {
-      this.$store.dispatch('toggleToTournament', { id: this.id, name: this.name })
-    },
     addAllToTournament () {
       this.$store.dispatch('addAllToTournament', this.players)
     }

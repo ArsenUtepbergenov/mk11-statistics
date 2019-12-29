@@ -86,18 +86,17 @@ export default new Vuex.Store({
         })
     },
     toggleToTournament ({ commit, getters, state }, data) {
-      const { id } = data
+      const { id, name } = data
       const index = getters['getIndexById']({ prop: 'playersForTournament', id })
       if (index > -1 && state.playersForTournament.length) {
         commit('deletePlayerForTournament', index)
       } else if (data) {
-        commit('addPlayerForTournament', { id })
+        commit('addPlayerForTournament', { id, name })
       }
     },
-    addAllToTournament ({ state, commit }, players) {
+    addAllToTournament ({ state, commit, dispatch }, players) {
       for (const player of players) {
-        const { id } = player
-        commit('addPlayerForTournament', { id })
+        dispatch('toggleToTournament', { id: player.id, name: player.name })
       }
     }
   },
@@ -115,7 +114,7 @@ export default new Vuex.Store({
       return state.players
     },
     getPlayersForTournament (state) {
-      return state.players.filter(item => state.playersForTournament.find(temp => temp.id === item.id))
+      return state.playersForTournament
     },
     getPlayersNames (state, getters) {
       const players = getters.getPlayersForTournament

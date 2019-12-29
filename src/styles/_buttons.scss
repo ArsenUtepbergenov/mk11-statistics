@@ -24,19 +24,18 @@
 }
 .button-all-to-tournament {
   @extend .button;
-  border-radius: 20px;
-  border: 2px solid;
-  padding: 10px;
-  font-size: 14px;
+  padding: 10px 2px;
+  font-size: 1em;
   color: #FF9800;
   letter-spacing: 1px;
   margin: 5px;
   transition: all 0.3s ease;
+  border-bottom: 1px solid;
+  border-color: transparent;
   &__icon {
     margin: 0 4px;
   }
   &:hover {
-    background: #FF9800;
-    color: var(--color-white);
+    border-color: #FF9800;
   }
 }

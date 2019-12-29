@@ -24,10 +24,12 @@
 }
 .button-all-to-tournament {
   @extend .button;
-  border-radius: 18PX;
+  border-radius: 20px;
   border: 2px solid;
   padding: 10px;
+  font-size: 14px;
   color: #FF9800;
+  letter-spacing: 1px;
   margin: 5px;
   transition: all 0.3s ease;
   &__icon {

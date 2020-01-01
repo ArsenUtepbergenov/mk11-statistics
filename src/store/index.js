@@ -67,12 +67,13 @@ export default new Vuex.Store({
           console.error('Error add room document: ', error)
         })
     },
-    deletePlayer ({ commit }, id) {
-      const tempId = id
+    deletePlayer ({ commit, getters }, id) {
       api.deletePlayer(id)
         .then(() => {
-          console.log('The player successfully deleted!', tempId)
-          commit('deletePlayer', tempId)
+          console.log('The player successfully deleted!', id)
+          commit('deletePlayer', id)
+          const index = getters['getIndexById']({ prop: 'playersForTournament', id })
+          commit('deletePlayerForTournament', index)
         })
         .catch(error => console.error('Error removing document: ', error))
     },

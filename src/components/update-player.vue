@@ -2,7 +2,7 @@
   <div class="flex-cc flex-col update-player">
     <div class="update-player__name">
       <template v-if="!isInputVisible">
-        <div class="text">{{name}}</div>
+        <div class="text">{{_name}}</div>
       </template>
       <template v-else>
         <div class="underline-input">
